@@ -1,0 +1,38 @@
+html {
+    min-height:100%;
+}
+body {
+    height:100%;
+}
+.container {
+    display:grid;
+    height:100%;
+    margin-top: 20px;
+    color:red;
+    font-size: 36px;
+
+}
+.row {
+    background:blue;
+    width:250px;
+    display: flex;
+    height:50px;
+    flex-direction: row;
+}
+.column {
+    background: gray;
+    width:100%;
+    height:100%;
+    border:1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.white {
+    background:white;
+}
+.black {
+    background:black;
+}
+
+

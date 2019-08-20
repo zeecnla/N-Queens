@@ -1,0 +1,11 @@
+{
+  "name": "n-queens",
+  "version": "1.0.0",
+  "description": "Demonstration of the n-queens problem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cesar melchor",
+  "license": "ISC"
+}
