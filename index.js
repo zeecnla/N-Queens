@@ -1,18 +1,16 @@
-
+"use strict";
 
 
 function drawBoard(size) {
-    console.log("board drawn");
-    const container = document.createElement("div");
-    container.classList="container ";
-    //container.style.gridTemplateColumns = `repeat(${size},1fr)`;
-
+    const container = document.createElement("table");
     for (let i = 0; i < size; i++) {
-        const row = document.createElement('div');
+        const row = document.createElement('tr');
         row.classList= "row";
         for (let j = 0; j < size; j++) {
-            const column = document.createElement('div');
+            
+            const column = document.createElement('td');
             column.classList = "column ";
+            column.id = `${i}_${j}`;
             if (i % 2 == j % 2) {
                 column.classList += "white";
             } else {
@@ -23,26 +21,39 @@ function drawBoard(size) {
         container.appendChild(row);
     }
     document.body.appendChild(container);
+
+    document.querySelectorAll("td").forEach(item=> item.addEventListener("click", function(e){
+
+        if(item.hasChildNodes()) {
+            item.innerHTML = ''
+        } else {
+            const frame = document.createElement("div");
+            frame.classList = "image_container"
+            const image = document.createElement("img");
+            image.src="queen.png";
+            frame.appendChild(image);
+            item.appendChild(frame);
+        }
+    }));
 }
 
-function solve(){
+function generate(){
 
     const queens = document.getElementById("queens").value;
     drawBoard(queens);
+    solve(queens);
+}
+
+function solve(size) {
 
     var board = [];
 
-    for (let i = 0; i < queens; i++) {
+    for(let i = 0; i < size; i++){
         board[i] = [];
-        for(let j =0; j < queens; j++) {
+        for(let j =0; j< size; j++){
             board[i][j] = 0;
         }
     }
-    console.log(board);
-
 }
 
-function checkTargets(x,y){
-
-}
 
